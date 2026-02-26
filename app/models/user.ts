@@ -4,6 +4,11 @@ import { hasMany } from '@adonisjs/lucid/orm'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 import Role from '#models/role'
 import Actualite from '#models/actualite'
+import { manyToMany } from '@adonisjs/lucid/orm'
+import type { ManyToMany } from '@adonisjs/lucid/types/relations'
+import Module from '#models/module'
+
+
 
 
 export default class User extends BaseModel {
@@ -23,4 +28,8 @@ declare password: string
 
   @hasMany(() => Actualite)
   declare actualites: HasMany<typeof Actualite>
+  
+ 
+@manyToMany(() => Module, { pivotTable: 'users_modules' })
+  declare modules: ManyToMany<typeof Module>
 }

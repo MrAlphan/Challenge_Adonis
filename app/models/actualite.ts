@@ -17,5 +17,4 @@ export default class Actualite extends BaseModel {
 
   @belongsTo(() => User)
   declare user: BelongsTo<typeof User>
-  
 }
